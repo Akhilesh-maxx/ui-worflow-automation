@@ -62,9 +62,9 @@ export default function LoginPage() {
             Simplifying Manufacturing Supply Chain Planning & Scheduling Operations.
           </p>
 
-          {/* Learn More Link */}
           <Link
-            href="#"
+            href="http://suchama.ai/"
+            target="_blank"
             className="inline-flex items-center gap-3 text-gray-800 hover:text-blue-600 font-medium underline text-base transition-colors"
           >
             Learn more about SUCHAMA.AI

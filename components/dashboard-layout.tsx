@@ -36,7 +36,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const [isSchedulingOpen, setIsSchedulingOpen] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [companyName, setCompanyName] = useState("Suchama.ai")
-  const [messages, setMessages] = useState<Array<{id: number, text: string, isBot: boolean, timestamp: Date}>>([])
+  const [messages, setMessages] = useState<Array<{ id: number, text: string, isBot: boolean, timestamp: Date }>>([])
   const [inputValue, setInputValue] = useState("")
   const [isTyping, setIsTyping] = useState(false)
 
@@ -44,7 +44,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     // Clear any stored authentication data
     localStorage.removeItem('authToken')
     sessionStorage.clear()
-    
+
     // Redirect to login page
     window.location.href = '/login'
   }
@@ -145,7 +145,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               onClick={() => setIsEditing(!isEditing)}
               className="hover:bg-white/10 p-1 rounded transition-colors flex-shrink-0"
             >
-              <Edit3 className="w-5 h-5 text-[#F3F3F3]" />
+              <Edit3 className="w-3.5 h-3.5 text-[#F3F3F3]" />
             </button>
           </div>
         </div>
@@ -229,7 +229,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
         {/* Fixed Bottom Section */}
         <div className="flex-shrink-0 p-4">
-          <div className="w-full flex justify-center">
+          <div className="w-full">
             <div className="flex items-center gap-3 text-[#F3F3F3] hover:bg-white/5 cursor-pointer p-3 rounded-lg">
               <Settings className="w-5 h-5" />
               <span className="font-semibold text-base">Settings</span>
@@ -258,7 +258,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-48">
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={handleLogout}
                 className="text-red-600 hover:text-red-700 hover:bg-red-50 cursor-pointer"
               >
@@ -277,7 +277,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
               {children}
             </div>
           </div>
-          
+
           {/* Chat Messages positioned above toolbox */}
           <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-6 z-10">
             <div className="space-y-4">
@@ -296,7 +296,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                       />
                     </div>
                   </div>
-                  <div 
+                  <div
                     style={{
                       display: 'flex',
                       flexDirection: 'row',
@@ -316,7 +316,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                   </div>
                 </div>
               )}
-              
+
               {messages.map((message) => (
                 <div key={message.id} className={`flex gap-3 ${message.isBot ? 'justify-start' : 'justify-end'}`}>
                   {message.isBot && (
@@ -333,9 +333,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                       </div>
                     </div>
                   )}
-                  
+
                   {message.isBot ? (
-                    <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -363,7 +363,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                       <p className="text-sm">{message.text}</p>
                     </div>
                   )}
-                  
+
                   {!message.isBot && (
                     <div className="flex-shrink-0">
                       <Avatar className="w-8 h-8">
@@ -421,7 +421,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                 <button className="p-2 hover:bg-purple-50 rounded-lg transition-colors">
                   <Mic className="w-5 h-5 text-purple-600" />
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     if (inputValue.trim()) {
                       const newMessage = {
